@@ -9,8 +9,6 @@ public class BulletObject : GavityObject
 
     [HideInInspector] public Vector3 direction = new Vector3(); // 移動方向
 
-    private Vector3 oldVec = new Vector3();
-
     private void Update()
     {
         transform.position += direction * speed * Time.deltaTime;   // 移動方向に対し移動速度で移動する
@@ -22,9 +20,9 @@ public class BulletObject : GavityObject
 
         if (distance < GavityController.GetRad + floatingAmount) return;                // 距離が発生源の半径+浮く量を下回っているなら早期リターンする(ある程度浮きながら移動するため)
 
-        Vector3 direction = GavityController.GetPos - transform.position;               // 
-        direction.Normalize();
+        Vector3 direction = GavityController.GetPos - transform.position;               // 重力発生源からの自身の方向を得る
+        direction.Normalize();                                                          // 方向を正規化する
 
-        rb.AddForce(gavityPower * direction, ForceMode.Acceleration);
+        rb.AddForce(gavityPower * direction, ForceMode.Acceleration);                   // 得た方向に対して重力値分力をかける
     }
 }
