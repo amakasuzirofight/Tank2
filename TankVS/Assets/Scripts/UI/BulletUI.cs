@@ -21,6 +21,7 @@ public class BulletUI : MonoBehaviour
             int changedValue = Mathf.Clamp(value, 0, 10);
             ChangeBulletCount(changedValue);
             bulletCount = changedValue;
+            chargeTimeCount = 0;
         }
     }
     private void Start()
@@ -29,12 +30,22 @@ public class BulletUI : MonoBehaviour
     }
     private void Update()
     {
-      Å@
+        ChargeEnergy();
     }
     private void ChargeEnergy()
     {
-
+        if (bulletCount == 10) return;
+        chargeTimeCount += Time.deltaTime;
+        if (chargeTimeCount >= energyChargeTime)
+        {
+            BulletCount++;
+            chargeTimeCount = 0;
+        }
     }
+    /// <summary>
+    /// íeêîí«â¡
+    /// </summary>
+    /// <param name="num"></param>
     public void AddBullets(int num)
     {
         BulletCount += num;

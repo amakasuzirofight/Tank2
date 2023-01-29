@@ -14,6 +14,7 @@ class FollowingCamera : MonoBehaviour
     private void Start()
     {
         offset = (transform.position - followObj.transform.position);
+        offset = new Vector3(-0.13f, 3.75f, -6.60f);
     }
     private void Update()
     {
@@ -23,7 +24,7 @@ class FollowingCamera : MonoBehaviour
 
         //行列を使って対象から一定の位置にカメラを移動させる
         Matrix4x4 addPos = Matrix4x4.identity;
-        addPos.SetTRS(offset, Quaternion.identity, transform.localScale);
+        addPos.SetTRS(offset, transform.rotation, transform.localScale);
         Matrix4x4 mat = Matrix4x4.identity;
         mat.SetTRS(followObj.transform.position, followObj.gameObject.transform.rotation, transform.localScale);
         mat *= addPos;
