@@ -9,6 +9,8 @@ public class BulletObject : GavityObject
 
     [HideInInspector] public Vector3 direction = new Vector3(); // ˆÚ“®•ûŒü
 
+    private Vector3 oldVec = new Vector3();
+
     private void Update()
     {
         transform.position += direction * speed * Time.deltaTime;   // ˆÚ“®•ûŒü‚É‘Î‚µˆÚ“®‘¬“x‚ÅˆÚ“®‚·‚é

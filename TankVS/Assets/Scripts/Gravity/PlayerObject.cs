@@ -17,6 +17,7 @@ public class PlayerObject : GavityObject
         {
             // 弾をインスタンスする
             BulletObject instance = Instantiate(bullet, transform.position + transform.forward + Vector3.up, Quaternion.identity);
+            instance.transform.rotation = transform.rotation;
             instance.direction = transform.forward;                             // インスタンスした弾の方向を自身と同じものにする
             input = true;                                                       // 入力済みに変更
         }
@@ -41,7 +42,7 @@ public class PlayerObject : GavityObject
 
         if (Input.GetKey(KeyCode.RightArrow) && !input) // 右入力
         {
-            this.transform.Rotate(0, 1f, 0);                                    // y軸に回転
+            transform.Rotate(0, 1f, 0);                                         // y軸に回転
         }
     }
 }
