@@ -15,10 +15,10 @@ public class GavityObject : MonoBehaviour
 
     void FixedUpdate()
     {
-        Gavity();   // 重力発生関数
+        Gravity();   // 重力発生関数
     }
 
-    protected virtual void Gavity()
+    protected virtual void Gravity()
     {
         Vector3 direction = GavityController.GetPos - transform.position;   // 重力発生源からの自身の方向を得る
         direction.Normalize();                                              // 方向を正規化する

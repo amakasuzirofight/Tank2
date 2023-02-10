@@ -11,7 +11,7 @@ public class BulletUI : MonoBehaviour
     [SerializeField] Sprite energyImage;
     [SerializeField] float energyChargeTime;
     float chargeTimeCount;
-    int bulletCount;
+  public  int bulletCount;
     int BulletCount
     {
         get => bulletCount;
@@ -46,9 +46,9 @@ public class BulletUI : MonoBehaviour
     /// íeêîí«â¡
     /// </summary>
     /// <param name="num"></param>
-    public void AddBullets(int num)
+    public void UseBullets(int num)
     {
-        BulletCount += num;
+        BulletCount -= num;
     }
     public int GetBulletsCount() => BulletCount;
 

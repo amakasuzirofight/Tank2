@@ -8,13 +8,13 @@ public class BulletObject : GavityObject
     [SerializeField, Tooltip("移動速度")] private float speed = 10;
 
     [HideInInspector] public Vector3 direction = new Vector3(); // 移動方向
-
+    public string shooterName;
     private void Update()
     {
         transform.position += direction * speed * Time.deltaTime;   // 移動方向に対し移動速度で移動する
     }
 
-    protected override void Gavity()
+    protected override void Gravity()
     {
         float distance = Vector3.Distance(transform.position,GavityController.GetPos);  // 自身との重力発生源との距離
 

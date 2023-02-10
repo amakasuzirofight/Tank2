@@ -6,8 +6,15 @@ using UnityEngine.SceneManagement;
 public class SceneContrller : MonoBehaviour
 {
 
-    public static void ChangeGameScene()
+    private void Update()
     {
-        SceneManager.LoadScene("");
+        if(Input.GetKeyDown(KeyCode.Return))
+        {
+            ChangeGameScene();
+        }
+    }
+    void ChangeGameScene()
+    {
+        SceneManager.LoadScene("AmaScene");
     }
 }
